@@ -4,11 +4,13 @@ import Form from './Form'
 
 function DogCard({name, image, sex, age, breed }) {
   return (
-    <div>
-        <h3>{name}</h3>
+    <div class="card">
+        <h2>{name}</h2>
+        <img src={image} alt={name} class="dog-picture"/>
         <p>{sex}</p>
-        <p>{age}</p>
-        <p>{breed}</p>
+        <p>Age: {age}</p>
+        <p>Breed: {breed}</p>
+        <button class="like-button">❤️</button>
 
     </div>
   )
