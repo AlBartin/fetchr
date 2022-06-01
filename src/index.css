@@ -3,6 +3,11 @@ body {
   font-family: monospace;
   background-color: rgb(252, 235, 184);
 }
+.nav-bar {
+  height: 8rem;
+  width: 100vw;
+}
+
 .card {
   text-align: center;
   border: rgb(159, 98, 0) solid 1px;

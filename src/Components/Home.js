@@ -7,7 +7,8 @@ import Favorites from './Favorites'
 function Home() {
   return (
     <div>
-        <DogContainer />
+      <Navbar />
+      <DogContainer />
 
 
     </div>
