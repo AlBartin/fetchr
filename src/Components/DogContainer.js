@@ -2,9 +2,9 @@ import React from 'react'
 import DogCard from './DogCard'
 
 
-function DogContainer({dogs}) {
+function DogContainer({dogs, filteredDogs}) {
 
-const dogDisplay = dogs.map((dog) => <DogCard {...dog} key={dog.id} />)
+const dogDisplay = filteredDogs.map((dog) => <DogCard {...dog} key={dog.id} />)
   return (
     <div>
         {dogDisplay}

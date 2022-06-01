@@ -1,27 +1,27 @@
 import React from 'react'
 
-function Sidebar({ageFilter, sexFilter}) {
+function Sidebar({filter}) {
 
   return (
     <div className="filter">
       <h3> filter by:</h3>
       <div className="sidebar-age">
         <h4>age</h4>
-        <select name="age" onChange={(e) => ageFilter(e.target.value)}>
-          <option value="all"> all </option>
-          <option value="1"> 1 </option>
-          <option value="2"> 2 </option>
-          <option value="3"> 3 </option>
-          <option value="4"> 4 </option>
-          <option value="5"> 5 </option>
-          <option value="6"> 6 </option>
-          <option value="7"> 7 </option>
-        </select>
+        
+          <button value="all" onClick={ () => filter("all")}> all </button>
+          <button value="1" onClick={ () => filter("1")}> 1 </button>
+          <button value="2" onClick={ () => filter("2")}> 2 </button>
+          <button value="3" onClick={filter}> 3 </button>
+          <button value="4" onClick={filter}> 4 </button>
+          <button value="5" onClick={filter}> 5 </button>
+          <button value="6" onClick={filter}> 6 </button>
+          <button value="7" onClick={filter}> 7 </button>
+       
       </div>
 
       <div className="sidebar-sex">
         <h4>sex</h4>
-        <select onChange={(e) => sexFilter(e.target.value)} >
+        <select  >
           <option value="all"> all </option>
           <option value="female"> female </option>
           <option value="male"> male </option>

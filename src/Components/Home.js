@@ -6,32 +6,42 @@ import Favorites from "./Favorites";
 
 function Home() {
   const [dogs, setDogs] = useState([]);
-  // const [filter, setFilter] = useState();
+  const [filteredDogs, setFilteredDogs] = useState(["all"])
 
   useEffect(() => {
     fetch("http://localhost:3000/dogs")
       .then((resp) => resp.json())
       .then(setDogs);
   }, []);
-// do I need to write a function for every single filter? 
-  function ageFilter(value) {
-    const filteredDogs = dogs.filter((dog) => {
-      return dog.age === value;
-    });
-    setDogs(filteredDogs);
+
+  const filter = (data) => {
+  
+    if (filteredDogs === "all") return true
+    
+    //  ? setDogs([...dogs]) : 
+    const filterData = dogs.filter(dog => dog.age === data)
+    setFilteredDogs(filterData)
   }
 
-   function sexFilter(value) {
-     const filteredSex = dogs.filter((dog) => {
-       return dog.sex === value;
-     });
-     setDogs(filteredSex);
-   }
+// do I need to write a function for every single filter? 
+  // function ageFilter(value) {
+  //   const filteredDogs = dogs.filter((dog) => {
+  //     return dog.age === value;
+  //   });
+  //   setDogs(filteredDogs);
+  // }
+
+  //  function sexFilter(value) {
+  //    const filteredSex = dogs.filter((dog) => {
+  //      return dog.sex === value;
+  //    });
+  //    setDogs(filteredSex);
+  //  }
 
   return (
     <div>
-      <Sidebar ageFilter = {ageFilter} sexFilter = {sexFilter} />
-      <DogContainer dogs={dogs} />
+      <Sidebar filter = {filter} />
+      <DogContainer dogs={dogs} filteredDogs = {filteredDogs} />
     </div>
   );
 }
